@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{karnaugh-map}
+
+\title{ASSIGNMENT NO. 8}
+\author{MD UMAID SHAAN}
+\date{january 9th, 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{The Boolean Expression For e}
+\begin{equation}
+ $e = A.\overline{B}.\overline{C}.\overline{D} + A.B.\overline{C}.\overline{D} + \overline{A}.\overline{B}.C.\overline{D}+A.\overline{B}.C\overline{D}+A.B.C.\overline{D}+A.\overline{B}.\overline{C}.D$
+\end{equation}
+
+\section{K-Map}
+Realisation using k-map when its POS.
+\begin{figure}[h]
+\centering
+\begin{karnaugh-map}[4][4][1][][]
+    \maxterms{0,1,4,5,7,9}
+    \minterms{2,3,8,6}
+    \autoterms[X]
+    % note: position for start of \draw is (0, Y) where Y is
+    % the Y size(number of cells high) in this case Y=2
+  
+    \implicant{0}{5}
+    \implicant{5}{15}
+    \implicant{1}{9}
+    \draw[color=black, ultra thin] (0, 4) --
+    node [pos=0.7, above right, anchor=south west] {$AB$} % YOU CAN CHANGE NAME OF VAR HERE, THE $X$ IS USED FOR ITALICS
+    node [pos=0.7, below left, anchor=north east] {$CD$} % SAME FOR THIS
+    ++(135:1);
+\end{karnaugh-map}
+\caption{K-Map for \textit{e} under given don't care condition.}
+\end{figure}
+\section{Simplified expression}
+  e = (A+C).(A+\overline{B}).(\overline{B}+\overline{D})
+
+
+
+\end{document}
